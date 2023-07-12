@@ -10,7 +10,20 @@ public class Ceiling {
 
     // return the index of smallest no >= target
     static int ceiling(int[] arr, int target) {
-        return 0;
+        int low =0;
+        int high = arr.length-1;
+        while (low <= high){
+            int mid = (low + (high-low)/2);
+
+            if(target > arr[mid]){
+                low = mid+1;
+            }else if (target < arr[mid]){
+                high = mid -1;
+            }else{
+                return mid;
+            }
+        }
+        return low; // Since low will be greater than high and one past the closest num to target if nothing found
     }
 
-    }
+}
