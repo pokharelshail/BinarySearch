@@ -8,6 +8,8 @@ public class PatternProblems {
         printTriangle(5,0);
         int[] arr = {4,3,2,1};
         System.out.println(Arrays.toString(bubbleSort(arr,0, arr.length-1)));
+        int[] arr2 = {4,3,2,1};
+        System.out.println(Arrays.toString(selectionSort(arr, arr.length-1,0,0)));
     }
 
     /*
@@ -63,8 +65,44 @@ public class PatternProblems {
         }
     }
 
-    /* Add more parameters as needed*/
-    static int[] selectionSort(int[] arr){
-        return arr;
+
+    static int[] selectionSort(int[] arr, int r, int c, int max) {
+        if (r == 0) {
+            return arr ;
+        }
+        if (c < r) {
+            if (arr[c] > arr[max]) {
+               return selectionSort(arr, r, c+1, c);
+            } else {
+                return selectionSort(arr, r, c+1, max);
+            }
+        } else {
+            int temp = arr[max];
+            arr[max] = arr[r-1];
+            arr[r-1] = temp;
+            return selectionSort(arr, r-1, 0, 0);
+        }
     }
+
+
+
+    /* Add more parameters as needed*/
+//    static int[] selectionSort(int[] arr,int end,int start, int max){
+//       if (end ==0){
+//           return arr;
+//       }
+//
+//       if (start< end) {
+//           if (arr[start] > arr[max]) {
+//              return selectionSort(arr, end, start + 1, start);
+//           } else {
+//               return selectionSort(arr, end, start + 1, max);
+//           }
+//       }else{
+//           int temp = arr[max];
+//           arr[max] = arr[end];
+//           arr[end] = temp;
+//          return selectionSort(arr,end-1,0,0);
+//       }
+//    }
 }
