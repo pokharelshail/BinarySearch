@@ -3,6 +3,7 @@ package com.Shail.Reccursion;
 /** given a string return a string without a'*/
 public class StringwithoutA {
     public static void main(String[] args) {
+
         String test = "aaamuiimaaach";
         System.out.println(removeString(test));
     }
